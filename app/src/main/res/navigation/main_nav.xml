@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.example.llogaritesirryms.login.LoginFragment"
+        android:label="landingFragment"
+        tools:layout="@layout/landing_fragment">
+        <action
+            android:id="@+id/action_landingFragment_to_calcFragment"
+            app:destination="@id/calcFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_landingFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/calcFragment"
+        android:name="com.example.llogaritesirryms.UI.CalculateFragment"
+        android:label="CalculateFragment"
+        tools:layout="@layout/calc_fragment">
+        <action
+            android:id="@+id/action_calcFragment_to_landingFragment"
+            app:destination="@id/landingFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <argument
+            android:name="username"
+            app:argType="string"
+            android:defaultValue="User" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/splash_screen_fragment"
+        android:id="@+id/splashScreenFragment"
+        android:name="com.example.llogaritesirryms.UI.SplashScreenFragment"
+        android:label="SplashScreenFragment" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_landingFragment"
+            app:destination="@id/landingFragment"
+
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        tools:layout="@layout/register_fragment"
+        android:name="com.example.llogaritesirryms.register.RegisterFragment"
+        android:label="RegisterFragment" >
+        <action
+            android:id="@+id/action_registerFragment_to_landingFragment"
+            app:destination="@id/landingFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+
+</navigation>
