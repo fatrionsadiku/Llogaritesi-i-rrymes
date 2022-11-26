@@ -9,26 +9,12 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="40dp"
         android:src="@drawable/ic_logo"
+        app:layout_constraintBottom_toTopOf="@id/vleratEKaluara"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-    <TextView
-        android:id="@+id/userName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:fontFamily="@font/roboto"
-        android:layout_marginTop="18dp"
-        android:text="Mirseerdhet "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/logo"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -36,13 +22,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
-        android:fontFamily="@font/roboto"
-
         android:layout_marginTop="18dp"
+        android:fontFamily="@font/roboto"
         android:text="Vlerat e muajit te kaluar :"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -53,18 +39,18 @@
         android:layout_margin="12dp"
         android:layout_marginStart="10dp"
         android:hint="A1 e muajit te kaluar"
-        app:layout_constraintEnd_toStartOf="@id/a2EkaluarField"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/a2EkaluarField"
         app:layout_constraintTop_toBottomOf="@id/vleratEKaluara">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/a1EKaluar"
             android:layout_width="match_parent"
-            android:layout_marginStart="10dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-
             android:drawablePadding="10dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
             android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -74,20 +60,18 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
-        android:layout_marginEnd="10dp"
         android:hint="A2 e muajit te tashem"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/a1EtashmeField"
-        app:layout_constraintTop_toBottomOf="@id/vleratETashme">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/a1EtashmeField">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/a2ETashme"
             android:layout_width="match_parent"
-            android:layout_marginEnd="10dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto"
-
             android:drawablePadding="10dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
             android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,13 +81,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
         android:layout_marginTop="18dp"
-        android:text="Vlerat e muajit te tashem :"
         android:fontFamily="@font/roboto"
-
+        android:text="Vlerat e muajit te tashem :"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/a1EkaluarField" />
+        app:layout_constraintTop_toBottomOf="@id/a2EkaluarField" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/a1EtashmeField"
@@ -113,7 +96,7 @@
         android:layout_margin="12dp"
         android:layout_marginStart="10dp"
         android:hint="A1 e muajit te tashem"
-        app:layout_constraintEnd_toStartOf="@id/a2EtashmeField"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vleratETashme">
 
@@ -121,12 +104,10 @@
             android:id="@+id/a1ETashme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:drawablePadding="10dp"
             android:fontFamily="@font/roboto"
-
-            android:inputType="numberDecimal"
-            android:outlineAmbientShadowColor="#313A19" />
+            android:gravity="center"
+            android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -138,33 +119,32 @@
         android:layout_marginEnd="10dp"
         android:hint="A2 e muajit te kaluar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/a1EkaluarField"
-        app:layout_constraintTop_toBottomOf="@id/vleratEKaluara">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/a1EkaluarField">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/a2EKaluar"
-            android:layout_marginEnd="10dp"
-            android:fontFamily="@font/roboto"
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="10dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
             android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <android.widget.Button
         android:id="@+id/kalkButton"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/button_bg"
-        android:text="Kalkulo"
         android:fontFamily="@font/roboto"
+        android:text="Kalkulo"
         android:textAllCaps="false"
         android:textColor="#313A19"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/a1EtashmeField" />
+        app:layout_constraintTop_toBottomOf="@id/a2EtashmeField" />
 
     <android.widget.Button
         android:id="@+id/shtoButton"
@@ -172,35 +152,20 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@drawable/button_bg"
+        android:fontFamily="@font/roboto"
         android:text="Shto Vlerat e ruajtura"
         android:textAllCaps="false"
         android:textColor="#313A19"
-        android:fontFamily="@font/roboto"
-
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/kalkButton" />
-
-    <TextView
-        android:id="@+id/rezultati"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/roboto"
-
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="18dp"
-        android:text="Rezultati :"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/shtoButton" />
+        app:layout_constraintStart_toEndOf="@id/kalkButton"
+        app:layout_constraintTop_toBottomOf="@id/a2EtashmeField"/>
 
 
     <ImageButton
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="32dp"
         android:background="@android:color/transparent"
         android:src="@drawable/add_icon"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Hp/Desktop/Llogaritesirryms/app/src/main/res/layout/calc_fragment.xml" value="0.33" />
+        <entry key="..\:/Users/Hp/Desktop/Llogaritesirryms/app/src/main/res/layout/landing_fragment.xml" value="0.14722222222222223" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

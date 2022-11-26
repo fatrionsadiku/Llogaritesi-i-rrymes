@@ -39,9 +39,9 @@ class CalculateFragment : Fragment() {
 
         onBackPressed()
 
-        val username = CalculateFragmentArgs.fromBundle(requireArguments()).username
 
-        binding.userName.text = "Welcome $username"
+
+
         binding.addButton.setOnClickListener {
             showDialog()
         }
@@ -51,12 +51,7 @@ class CalculateFragment : Fragment() {
         }
 
         binding.kalkButton.setOnClickListener {
-            try {
-                binding.rezultati.text = "${calcVal()}€"
-            } catch (e: IllegalArgumentException) {
-                Toast.makeText(requireContext(), "Mbushi te gjitha fushat", Toast.LENGTH_SHORT)
-                    .show()
-            }
+
         }
 
     }
