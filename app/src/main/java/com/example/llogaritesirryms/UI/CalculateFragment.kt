@@ -4,10 +4,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
+import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.addCallback
@@ -61,7 +58,9 @@ class CalculateFragment : Fragment() {
                     requireContext(),
                     "Ju lutem mbushni te gjitha fushat",
                     Toast.LENGTH_SHORT
-                ).show()
+                ).apply {
+                    setGravity(Gravity.BOTTOM,0,65)
+                }.show()
             }
         }
 
@@ -84,8 +83,7 @@ class CalculateFragment : Fragment() {
                     Toast.LENGTH_LONG
                 ).show()
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Plotesoni te gjitha fushat!", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(requireContext(), "Plotesoni te gjitha fushat!", Toast.LENGTH_SHORT).show()
             }
         }
         dialogBinding.closeDialog.setOnClickListener {
