@@ -18,6 +18,9 @@ import com.example.llogaritesirryms.R
 import com.example.llogaritesirryms.data.Preferences
 import com.example.llogaritesirryms.databinding.AddValuesDialogBinding
 import com.example.llogaritesirryms.databinding.CalcFragmentBinding
+import com.example.llogaritesirryms.databinding.CalcResultDialogBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import java.lang.IllegalArgumentException
 import kotlin.math.roundToInt
 
 class CalculateFragment : Fragment() {
@@ -51,7 +54,15 @@ class CalculateFragment : Fragment() {
         }
 
         binding.kalkButton.setOnClickListener {
-
+            try {
+                calcVal()
+            } catch (e: IllegalArgumentException) {
+                Toast.makeText(
+                    requireContext(),
+                    "Ju lutem mbushni te gjitha fushat",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
 
     }
@@ -59,12 +70,8 @@ class CalculateFragment : Fragment() {
 
     private fun showDialog() {
         val dialogBinding = AddValuesDialogBinding.inflate(requireActivity().layoutInflater)
-        val dialog = Dialog(requireActivity())
+        val dialog = BottomSheetDialog(requireActivity())
         dialog.setContentView(dialogBinding.root)
-
-        val layoutParams = dialog.window!!.attributes
-        layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT
-        dialog.window!!.attributes = layoutParams
         dialogBinding.ruajVlerat.setOnClickListener {
             try {
                 val A1 = dialogBinding.a1EKaluar.text.toString().toInt()
@@ -94,7 +101,7 @@ class CalculateFragment : Fragment() {
         binding.a2EKaluar.setText(A2, TextView.BufferType.EDITABLE)
     }
 
-    private fun calcVal(): Int {
+    private fun calcVal() {
         val a1EKaluar = binding.a1EKaluar.text.toString().toDouble()
         val a2EKaluar = binding.a2EKaluar.text.toString().toDouble()
         val a1ETashme = binding.a1ETashme.text.toString().toDouble()
@@ -102,28 +109,39 @@ class CalculateFragment : Fragment() {
         val a1 = (a1ETashme - a1EKaluar) * 0.0675
         val a2 = (a2ETashme - a2EKaluar) * 0.0289
         var rezultati = a1 + a2
-        return rezultati.roundToInt()
+        val roundedRes = String.format("%.2f", rezultati)
+        val dialogBinding = CalcResultDialogBinding.inflate(requireActivity().layoutInflater)
+        val dialog = Dialog(requireContext())
+        dialog.setContentView(dialogBinding.root)
+        val layoutParams = dialog.window?.attributes
+        layoutParams?.width = WindowManager.LayoutParams.MATCH_PARENT
+        dialog.window?.attributes = layoutParams
+        dialogBinding.calcResult.text = "$roundedRes $"
+        dialogBinding.hjekDialogButton.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.show()
     }
 
     private fun onBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             AlertDialog.Builder(requireContext()).apply {
                 setTitle("Do you want to go back to the login screen?").setNegativeButton(
-                        "No",
-                        DialogInterface.OnClickListener { dialogInterface, i ->
-                            dialogInterface.dismiss()
-                        }).setPositiveButton("Yes",
-                        DialogInterface.OnClickListener { dialogInterface, i ->
-                            fragmentManager?.commit {
-                                setCustomAnimations(
-                                    R.anim.slide_in_left,
-                                    R.anim.slide_out_right,
-                                    R.anim.slide_in_right,
-                                    R.anim.slide_out_left
-                                )
-                                findNavController().navigate(R.id.action_calcFragment_to_landingFragment)
-                            }
-                        }).create().show()
+                    "No",
+                    DialogInterface.OnClickListener { dialogInterface, i ->
+                        dialogInterface.dismiss()
+                    }).setPositiveButton("Yes",
+                    DialogInterface.OnClickListener { dialogInterface, i ->
+                        fragmentManager?.commit {
+                            setCustomAnimations(
+                                R.anim.slide_in_left,
+                                R.anim.slide_out_right,
+                                R.anim.slide_in_right,
+                                R.anim.slide_out_left
+                            )
+                            findNavController().navigate(R.id.action_calcFragment_to_landingFragment)
+                        }
+                    }).create().show()
             }
         }
     }

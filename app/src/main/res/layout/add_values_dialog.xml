@@ -12,7 +12,6 @@
         android:layout_marginTop="24dp"
         android:fontFamily="@font/roboto"
         android:text="Regjistro vlerat"
-
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +23,8 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="28dp"
         android:hint="A1 e muajit te kaluar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/regjistroVlerat">
@@ -63,7 +63,6 @@
         android:text="Hjek Dialogun"
         android:textAllCaps="false"
         android:textColor="#313A19"
-
         app:layout_constraintBaseline_toBaselineOf="@+id/a2EkaluarField"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,8 +73,10 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="28dp"
+        android:paddingBottom="20dp"
+
         android:hint="A2 e muajit te kaluar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -73,10 +73,10 @@
                 android:id="@+id/userName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#00000000"
-                android:alpha="0.4"
-                android:hint="Username"
                 android:layout_marginTop="4dp"
+                android:alpha="0.4"
+                android:backgroundTint="#00000000"
+                android:hint="Username"
                 android:inputType="text"
                 android:textColor="#FFFFFF" />
 

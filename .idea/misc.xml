@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Hp/Desktop/Llogaritesirryms/app/src/main/res/drawable/button_bg.xml" value="0.2375" />
+        <entry key="..\:/Users/Hp/Desktop/Llogaritesirryms/app/src/main/res/drawable/edittext_bg.xml" value="0.2375" />
+        <entry key="..\:/Users/Hp/Desktop/Llogaritesirryms/app/src/main/res/layout/add_values_dialog.xml" value="0.36102564102564105" />
         <entry key="..\:/Users/Hp/Desktop/Llogaritesirryms/app/src/main/res/layout/calc_fragment.xml" value="0.33" />
-        <entry key="..\:/Users/Hp/Desktop/Llogaritesirryms/app/src/main/res/layout/landing_fragment.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/Hp/Desktop/Llogaritesirryms/app/src/main/res/layout/calc_result_dialog.xml" value="0.365625" />
+        <entry key="..\:/Users/Hp/Desktop/Llogaritesirryms/app/src/main/res/layout/landing_fragment.xml" value="0.67" />
+        <entry key="..\:/Users/Hp/Desktop/Llogaritesirryms/app/src/main/res/layout/register_fragment.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
