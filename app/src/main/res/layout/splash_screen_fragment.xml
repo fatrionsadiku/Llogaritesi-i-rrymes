@@ -9,7 +9,7 @@
         android:id="@+id/logo"
         android:layout_width="195dp"
         android:layout_height="208dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="168dp"
         android:src="@drawable/app_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
