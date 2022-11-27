@@ -3,6 +3,7 @@ package com.example.llogaritesirryms.UI
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
+import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.view.*
 import android.widget.TextView
@@ -34,12 +35,8 @@ class CalculateFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Preferences.init(requireContext())
-
-
-
         onBackPressed()
-
-
+        backGroundAnimation()
 
 
         binding.addButton.setOnClickListener {
@@ -142,6 +139,14 @@ class CalculateFragment : Fragment() {
                     }).create().show()
             }
         }
+    }
+
+    private fun backGroundAnimation(){
+        val layout = binding.calcLayout
+        val animation = layout.background as AnimationDrawable
+        animation.setEnterFadeDuration(2500)
+        animation.setExitFadeDuration(1000)
+        animation.start()
     }
 
 
