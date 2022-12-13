@@ -9,7 +9,9 @@ import android.util.Log
 import android.view.*
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar.OnMenuItemClickListener
 import androidx.activity.addCallback
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.navigation.fragment.NavHostFragment
@@ -27,6 +29,8 @@ import kotlin.math.roundToInt
 
 class CalculateFragment : Fragment() {
 
+    lateinit var toggle : ActionBarDrawerToggle
+
     lateinit var binding: CalcFragmentBinding
 
     override fun onCreateView(
@@ -41,6 +45,9 @@ class CalculateFragment : Fragment() {
         Preferences.init(requireContext())
         onBackPressed()
         backGroundAnimation()
+        initDrawerUi()
+
+
 
         binding.toolbar.setOnMenuItemClickListener {
             when(it.itemId){
@@ -161,14 +168,8 @@ class CalculateFragment : Fragment() {
     }
 
     private fun initDrawerUi(){
-        val navHostFragment = fragmentManager?.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        val navGraph = navHostFragment.navController.graph
-        val drawer = binding.calcLayout
-        val builder = AppBarConfiguration.Builder(navGraph)
-        builder.setOpenableLayout(drawer)
-        val appBarConfiguration = builder.build()
-        binding.toolbar.setupWithNavController(navHostFragment.navController, appBarConfiguration)
+        toggle =  ActionBarDrawerToggle(requireActivity(),binding.calcLayout,binding.toolbar,R.string.open,R.string.close)
+        binding.calcLayout.addDrawerListener(toggle)
+        toggle.syncState()
     }
-
-
 }
