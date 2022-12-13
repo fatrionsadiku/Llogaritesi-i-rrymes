@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/landingFragment"
+    >
 
     <fragment
         android:id="@+id/landingFragment"
@@ -42,17 +43,6 @@
             android:name="username"
             app:argType="string"
             android:defaultValue="User" />
-    </fragment>
-    <fragment
-        tools:layout="@layout/splash_screen_fragment"
-        android:id="@+id/splashScreenFragment"
-        android:name="com.example.llogaritesirryms.UI.SplashScreenFragment"
-        android:label="SplashScreenFragment" >
-        <action
-            android:id="@+id/action_splashScreenFragment_to_landingFragment"
-            app:destination="@id/landingFragment"
-
-            />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"

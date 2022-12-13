@@ -29,7 +29,6 @@ import kotlin.math.roundToInt
 
 class CalculateFragment : Fragment() {
 
-    lateinit var toggle : ActionBarDrawerToggle
 
     lateinit var binding: CalcFragmentBinding
 
@@ -45,17 +44,6 @@ class CalculateFragment : Fragment() {
         Preferences.init(requireContext())
         onBackPressed()
         backGroundAnimation()
-        initDrawerUi()
-
-
-
-        binding.toolbar.setOnMenuItemClickListener {
-            when(it.itemId){
-                R.id.ratatFragment -> Log.d("ratat", "hello: ")
-                R.id.helpFragment -> Toast.makeText(requireContext(),"Hello2", Toast.LENGTH_LONG).show()
-            }
-            true
-        }
 
         binding.addButton.setOnClickListener {
             showDialog()
@@ -167,9 +155,5 @@ class CalculateFragment : Fragment() {
         animation.start()
     }
 
-    private fun initDrawerUi(){
-        toggle =  ActionBarDrawerToggle(requireActivity(),binding.calcLayout,binding.toolbar,R.string.open,R.string.close)
-        binding.calcLayout.addDrawerListener(toggle)
-        toggle.syncState()
-    }
+
 }
