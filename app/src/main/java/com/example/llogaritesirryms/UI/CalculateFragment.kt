@@ -5,13 +5,17 @@ import android.app.Dialog
 import android.content.DialogInterface
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 import com.example.llogaritesirryms.R
 import com.example.llogaritesirryms.data.Preferences
 import com.example.llogaritesirryms.databinding.AddValuesDialogBinding
@@ -38,6 +42,13 @@ class CalculateFragment : Fragment() {
         onBackPressed()
         backGroundAnimation()
 
+        binding.toolbar.setOnMenuItemClickListener {
+            when(it.itemId){
+                R.id.ratatFragment -> Log.d("ratat", "hello: ")
+                R.id.helpFragment -> Toast.makeText(requireContext(),"Hello2", Toast.LENGTH_LONG).show()
+            }
+            true
+        }
 
         binding.addButton.setOnClickListener {
             showDialog()
@@ -147,6 +158,16 @@ class CalculateFragment : Fragment() {
         animation.setEnterFadeDuration(2500)
         animation.setExitFadeDuration(1000)
         animation.start()
+    }
+
+    private fun initDrawerUi(){
+        val navHostFragment = fragmentManager?.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        val navGraph = navHostFragment.navController.graph
+        val drawer = binding.calcLayout
+        val builder = AppBarConfiguration.Builder(navGraph)
+        builder.setOpenableLayout(drawer)
+        val appBarConfiguration = builder.build()
+        binding.toolbar.setupWithNavController(navHostFragment.navController, appBarConfiguration)
     }
 
 

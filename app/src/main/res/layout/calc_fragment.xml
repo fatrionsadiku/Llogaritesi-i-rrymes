@@ -204,6 +204,7 @@
         android:background="@drawable/gradient_anim"
         android:layout_gravity="start"
         app:headerLayout="@layout/header_layout"
+        android:foregroundGravity="center"
         app:menu="@menu/menu" />
 
 

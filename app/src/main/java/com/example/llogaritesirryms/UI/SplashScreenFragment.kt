@@ -1,5 +1,6 @@
 package com.example.llogaritesirryms.UI
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.llogaritesirryms.R
 import com.example.llogaritesirryms.databinding.SplashScreenFragmentBinding
 
+@SuppressLint("CustomSplashScreen")
 class SplashScreenFragment : Fragment() {
     private lateinit var binding: SplashScreenFragmentBinding
     override fun onCreateView(
