@@ -2,16 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/calcFragment"
-        android:checked="true"
+        android:id="@+id/ratatFragment"
         android:visible="true"
-        android:icon="@drawable/ic_calcicon"
-        android:title="" />
+        android:title="Ratat" />
     <item
-        android:id="@+id/resFragment"
-        android:checked="false"
+        android:id="@+id/helpFragment"
         android:visible="true"
-        android:icon="@drawable/ic_addicon"
-        android:title="" />
+        android:title="Ndihmë" />
 
 </menu>

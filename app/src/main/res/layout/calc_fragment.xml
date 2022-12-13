@@ -1,183 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:id="@+id/calcLayout"
-    android:background="@drawable/gradient_anim"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_anim">
 
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/app_logo"
-        app:layout_constraintBottom_toTopOf="@id/vleratEKaluara"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/vleratEKaluara"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/roboto"
-        android:text="Vlerat e muajit te kaluar :"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@id/logo" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/a1EkaluarField"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:layout_marginStart="10dp"
-        android:hint="A1 e muajit te kaluar"
-        app:layout_constraintBottom_toTopOf="@id/a2EkaluarField"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vleratEKaluara">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/a1EKaluar"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/gradient_anim"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"/>
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:inputType="numberDecimal" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginTop="20dp"
+            android:src="@drawable/app_logo"
+            app:layout_constraintBottom_toTopOf="@id/vleratEKaluara"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/a2EtashmeField"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:hint="A2 e muajit te tashem"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/a1EtashmeField">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/a2ETashme"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/vleratEKaluara"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
             android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:inputType="numberDecimal" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="Vlerat e muajit te kaluar :"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
 
-    <TextView
-        android:id="@+id/vleratETashme"
+            app:layout_constraintTop_toBottomOf="@id/logo" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/a1EkaluarField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_marginStart="10dp"
+            android:hint="A1 e muajit te kaluar"
+            app:layout_constraintBottom_toTopOf="@id/a2EkaluarField"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vleratEKaluara">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/a1EKaluar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/a2EtashmeField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:hint="A2 e muajit te tashem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/a1EtashmeField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/a2ETashme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/vleratETashme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/roboto"
+            android:text="Vlerat e muajit te tashem :"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/a2EkaluarField" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/a1EtashmeField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_marginStart="10dp"
+            android:hint="A1 e muajit te tashem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vleratETashme">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/a1ETashme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/a2EkaluarField"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:layout_marginEnd="10dp"
+            android:hint="A2 e muajit te kaluar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/a1EkaluarField">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/a2EKaluar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/roboto"
+                android:gravity="center"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <android.widget.Button
+            android:id="@+id/kalkButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/roboto"
+            android:text="Kalkulo"
+            android:textAllCaps="false"
+            android:textColor="#313A19"
+            app:layout_constraintEnd_toStartOf="@id/shtoButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/a2EtashmeField" />
+
+        <android.widget.Button
+            android:id="@+id/shtoButton"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="60dp"
+            android:background="@drawable/button_bg"
+            android:fontFamily="@font/roboto"
+            android:text="Shto Vlerat e ruajtura"
+            android:textAllCaps="false"
+            android:textColor="#313A19"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/kalkButton"
+            app:layout_constraintTop_toBottomOf="@id/a2EtashmeField" />
+
+
+        <ImageButton
+            android:id="@+id/addButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="52dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/add_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/kalkButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/roboto"
-        android:text="Vlerat e muajit te tashem :"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/a2EkaluarField" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/a1EtashmeField"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:layout_marginStart="10dp"
-        android:hint="A1 e muajit te tashem"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vleratETashme">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/a1ETashme"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:inputType="numberDecimal" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/a2EkaluarField"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:layout_marginEnd="10dp"
-        android:hint="A2 e muajit te kaluar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/a1EkaluarField">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/a2EKaluar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/roboto"
-            android:gravity="center"
-            android:inputType="numberDecimal" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <android.widget.Button
-        android:id="@+id/kalkButton"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button_bg"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/roboto"
-        android:text="Kalkulo"
-        app:layout_constraintEnd_toStartOf="@id/shtoButton"
-        android:textAllCaps="false"
-        android:textColor="#313A19"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/a2EtashmeField" />
-
-    <android.widget.Button
-        android:id="@+id/shtoButton"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/button_bg"
-        android:fontFamily="@font/roboto"
-        android:layout_marginEnd="60dp"
-        android:layout_marginStart="20dp"
-        android:text="Shto Vlerat e ruajtura"
-        android:textAllCaps="false"
-        android:textColor="#313A19"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/kalkButton"
-        app:layout_constraintTop_toBottomOf="@id/a2EtashmeField" />
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_anim"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header_layout"
+        app:menu="@menu/menu" />
 
 
-    <ImageButton
-        android:id="@+id/addButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="52dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/add_icon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/kalkButton" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

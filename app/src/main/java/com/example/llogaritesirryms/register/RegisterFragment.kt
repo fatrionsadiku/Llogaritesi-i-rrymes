@@ -52,16 +52,24 @@ class RegisterFragment : Fragment() {
             userName,
             password
         )
+        GlobalScope.launch(Dispatchers.IO) {
         if (userName.isNotEmpty() && password.isNotEmpty() && password == password1) {
-            val database: UserDatabase = UserDatabase.getDatabase(requireContext())
+            val database = UserDatabase.getDatabase(requireContext())
             val userDao = database.userDao()
-            GlobalScope.launch(Dispatchers.IO) {
                 userDao.addUser(user)
+                withContext(Dispatchers.Main){
+                    registerSuccessfulAnimation()
+                    clearFields()
+                }
             }
-            registerSuccessfulAnimation()
-            clearFields()
+            else if(userName.isEmpty() && password.isEmpty()){
+                withContext(Dispatchers.Main){
+                    registerFailedAnimation()
+                }
+            }
         }
     }
+
 
 
 

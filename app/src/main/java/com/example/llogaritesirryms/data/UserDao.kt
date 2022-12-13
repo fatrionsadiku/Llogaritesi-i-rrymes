@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface UserDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun addUser(user : User)
 
     @Query("SELECT * FROM user_info ORDER BY id DESC")
