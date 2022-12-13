@@ -17,7 +17,7 @@ import kotlinx.coroutines.*
 import java.lang.IllegalArgumentException
 
 class RegisterFragment : Fragment() {
-    lateinit var binding : RegisterFragmentBinding
+    lateinit var binding: RegisterFragmentBinding
 
 
     override fun onCreateView(
@@ -25,7 +25,7 @@ class RegisterFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = RegisterFragmentBinding.inflate(inflater,container,false)
+        binding = RegisterFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -41,7 +41,6 @@ class RegisterFragment : Fragment() {
     }
 
 
-
     private fun registerUser() {
         val userName = binding.userName.text.toString()
         val password = binding.password.text.toString()
@@ -52,18 +51,17 @@ class RegisterFragment : Fragment() {
             userName,
             password
         )
-        GlobalScope.launch(Dispatchers.IO) {
-        if (userName.isNotEmpty() && password.isNotEmpty() && password == password1) {
-            val database = UserDatabase.getDatabase(requireContext())
-            val userDao = database.userDao()
+        CoroutineScope(Dispatchers.IO).launch {
+            if (userName.isNotEmpty() && password.isNotEmpty() && password == password1) {
+                val database = UserDatabase.getDatabase(requireContext())
+                val userDao = database.userDao()
                 userDao.addUser(user)
-                withContext(Dispatchers.Main){
+                withContext(Dispatchers.Main) {
                     registerSuccessfulAnimation()
                     clearFields()
                 }
-            }
-            else if(userName.isEmpty() && password.isEmpty()){
-                withContext(Dispatchers.Main){
+            } else if (userName.isEmpty() && password.isEmpty()) {
+                withContext(Dispatchers.Main) {
                     registerFailedAnimation()
                 }
             }
@@ -71,9 +69,7 @@ class RegisterFragment : Fragment() {
     }
 
 
-
-
-    private fun registerSuccessfulAnimation(){
+    private fun registerSuccessfulAnimation() {
         binding.registerSuccesful.alpha = 0f
         binding.registerSuccesful.visibility = View.VISIBLE
         binding.registerSuccesful.animate().apply {
@@ -87,7 +83,7 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    fun registerFailedAnimation(){
+    fun registerFailedAnimation() {
         binding.registerSuccesful.alpha = 0f
         binding.registerSuccesful.setTextColor(Color.RED)
         binding.registerSuccesful.text = "Useri nuk u regjistrua, provo perseri"
@@ -103,13 +99,11 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    fun clearFields(){
+    fun clearFields() {
         binding.password.setText("")
         binding.userName.setText("")
         binding.reEnterPassword.setText("")
     }
-
-
 
 
 }
