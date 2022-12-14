@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.*
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.Toolbar.LayoutParams
 import android.widget.Toolbar.OnMenuItemClickListener
 import androidx.activity.addCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -113,11 +114,9 @@ class CalculateFragment : Fragment() {
         val roundedRes = String.format("%.2f", rezultati)
         val dialogBinding = CalcResultDialogBinding.inflate(requireActivity().layoutInflater)
         val dialog = Dialog(requireContext())
-        dialog.setContentView(dialogBinding.root)
-        val layoutParams = dialog.window?.attributes
-        layoutParams?.width = WindowManager.LayoutParams.MATCH_PARENT
-        dialog.window?.attributes = layoutParams
-        dialogBinding.calcResult.text = "$roundedRes $"
+        val parameters = LayoutParams(750,200)
+        dialog.setContentView(dialogBinding.root, parameters)
+        dialogBinding.calcResult.text = "Borgji total eshte : $roundedRes $"
         dialogBinding.closeDialog.setOnClickListener {
             dialog.dismiss()
         }
@@ -127,6 +126,7 @@ class CalculateFragment : Fragment() {
     private fun onBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             AlertDialog.Builder(requireContext()).apply {
+                enterTransition
                 setTitle("Do you want to go back to the login screen?").setNegativeButton(
                     "No",
                     DialogInterface.OnClickListener { dialogInterface, i ->
