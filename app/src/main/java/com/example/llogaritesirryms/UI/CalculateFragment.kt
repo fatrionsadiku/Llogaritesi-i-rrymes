@@ -3,7 +3,9 @@ package com.example.llogaritesirryms.UI
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.DialogInterface
+import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -114,8 +116,9 @@ class CalculateFragment : Fragment() {
         val roundedRes = String.format("%.2f", rezultati)
         val dialogBinding = CalcResultDialogBinding.inflate(requireActivity().layoutInflater)
         val dialog = Dialog(requireContext())
-        val parameters = LayoutParams(750,200)
+        val parameters = LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT)
         dialog.setContentView(dialogBinding.root, parameters)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialogBinding.calcResult.text = "Borgji total eshte : $roundedRes $"
         dialogBinding.closeDialog.setOnClickListener {
             dialog.dismiss()
