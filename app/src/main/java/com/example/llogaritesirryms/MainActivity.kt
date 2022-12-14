@@ -28,13 +28,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         binding.navView.setupWithNavController(navHostFragment.navController)
-        binding.navView.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.ratatFragment -> Toast.makeText(this,"Hello", Toast.LENGTH_LONG).show()
-                R.id.helpFragment -> Toast.makeText(this,"Hello", Toast.LENGTH_LONG).show()
-            }
-            true
-        }
         toggle.syncState()
     }
 

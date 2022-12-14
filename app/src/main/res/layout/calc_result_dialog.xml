@@ -32,7 +32,7 @@
             android:id="@+id/calcResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="18dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/sanslight"
             android:gravity="center"
@@ -41,7 +41,7 @@
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/ok_btn_id"
+            android:id="@+id/closeDialogButton"
             android:layout_width="80dp"
             android:layout_height="40sp"
             android:gravity="center"

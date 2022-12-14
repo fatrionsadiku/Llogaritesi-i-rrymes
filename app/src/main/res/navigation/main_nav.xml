@@ -43,6 +43,9 @@
             android:name="username"
             app:argType="string"
             android:defaultValue="User" />
+        <action
+            android:id="@+id/action_calcFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -56,6 +59,16 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.llogaritesirryms.UI.HelpFragment"
+        android:label="HelpFragment"
+        tools:layout="@layout/help_fragment"
+        >
+        <action
+            android:id="@+id/action_helpFragment_to_calcFragment"
+            app:popUpTo="@id/calcFragment" />
     </fragment>
 
 </navigation>

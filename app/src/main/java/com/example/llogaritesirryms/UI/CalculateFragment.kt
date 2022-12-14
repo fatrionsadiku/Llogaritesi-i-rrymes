@@ -24,6 +24,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.llogaritesirryms.R
 import com.example.llogaritesirryms.data.Preferences
 import com.example.llogaritesirryms.databinding.AddValuesDialogBinding
+import com.example.llogaritesirryms.databinding.AlertDialogBinding
 import com.example.llogaritesirryms.databinding.CalcFragmentBinding
 import com.example.llogaritesirryms.databinding.CalcResultDialogBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -123,28 +124,31 @@ class CalculateFragment : Fragment() {
         dialogBinding.closeDialog.setOnClickListener {
             dialog.dismiss()
         }
+        dialogBinding.closeDialogButton.setOnClickListener {
+            dialog.dismiss()
+        }
         dialog.show()
     }
 
     private fun onBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             AlertDialog.Builder(requireContext()).apply {
-                enterTransition
-                setTitle("Do you want to go back to the login screen?").setNegativeButton(
-                    "No",
-                    DialogInterface.OnClickListener { dialogInterface, i ->
+                setTitle("Do you want to go back?")
+                    .setNegativeButton(
+                        "Yes",
+                        DialogInterface.OnClickListener { dialogInterface, i ->
+                            fragmentManager?.commit {
+                                setCustomAnimations(
+                                    R.anim.slide_in_left,
+                                    R.anim.slide_out_right,
+                                    R.anim.slide_in_right,
+                                    R.anim.slide_out_left
+                                )
+                                findNavController().navigate(R.id.action_calcFragment_to_landingFragment)
+                            }
+                        })
+                    .setPositiveButton("No", DialogInterface.OnClickListener { dialogInterface, i ->
                         dialogInterface.dismiss()
-                    }).setPositiveButton("Yes",
-                    DialogInterface.OnClickListener { dialogInterface, i ->
-                        fragmentManager?.commit {
-                            setCustomAnimations(
-                                R.anim.slide_in_left,
-                                R.anim.slide_out_right,
-                                R.anim.slide_in_right,
-                                R.anim.slide_out_left
-                            )
-                            findNavController().navigate(R.id.action_calcFragment_to_landingFragment)
-                        }
                     }).create().show()
             }
         }
