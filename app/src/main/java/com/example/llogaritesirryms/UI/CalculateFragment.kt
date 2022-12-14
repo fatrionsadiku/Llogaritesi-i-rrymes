@@ -109,7 +109,7 @@ class CalculateFragment : Fragment() {
         val a2ETashme = binding.a2ETashme.text.toString().toDouble()
         val a1 = (a1ETashme - a1EKaluar) * 0.0675
         val a2 = (a2ETashme - a2EKaluar) * 0.0289
-        var rezultati = a1 + a2
+        val rezultati = a1 + a2
         val roundedRes = String.format("%.2f", rezultati)
         val dialogBinding = CalcResultDialogBinding.inflate(requireActivity().layoutInflater)
         val dialog = Dialog(requireContext())
@@ -118,7 +118,7 @@ class CalculateFragment : Fragment() {
         layoutParams?.width = WindowManager.LayoutParams.MATCH_PARENT
         dialog.window?.attributes = layoutParams
         dialogBinding.calcResult.text = "$roundedRes $"
-        dialogBinding.hjekDialogButton.setOnClickListener {
+        dialogBinding.closeDialog.setOnClickListener {
             dialog.dismiss()
         }
         dialog.show()
