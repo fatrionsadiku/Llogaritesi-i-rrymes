@@ -24,7 +24,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.llogaritesirryms.R
 import com.example.llogaritesirryms.data.Preferences
 import com.example.llogaritesirryms.databinding.AddValuesDialogBinding
-import com.example.llogaritesirryms.databinding.AlertDialogBinding
 import com.example.llogaritesirryms.databinding.CalcFragmentBinding
 import com.example.llogaritesirryms.databinding.CalcResultDialogBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog

@@ -28,17 +28,15 @@
             android:scaleType="fitCenter"
             android:src="@drawable/close" />
 
-        <TextView
-            android:id="@+id/calcResult"
+        <ImageView
+            android:id="@+id/ratat"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="130dp"
             android:layout_marginTop="18dp"
+            android:src="@drawable/ratat2"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/sanslight"
-            android:gravity="center"
-            android:text="Rezultati"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:gravity="center" />
 
         <Button
             android:id="@+id/closeDialogButton"

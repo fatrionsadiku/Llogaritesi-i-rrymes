@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/calcLayout"
@@ -7,12 +7,15 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_anim">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/app_logo"
             app:layout_constraintBottom_toTopOf="@id/vleratEKaluara"
             app:layout_constraintEnd_toEndOf="parent"
@@ -171,7 +174,7 @@
             android:id="@+id/addButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="30dp"
             android:layout_marginBottom="52dp"
             android:background="@android:color/transparent"
             android:src="@drawable/add_icon"
@@ -180,6 +183,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/kalkButton" />
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</ScrollView>
