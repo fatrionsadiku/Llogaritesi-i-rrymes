@@ -2,6 +2,8 @@ package com.example.llogaritesirryms
 
 import android.app.ActionBar.LayoutParams
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -54,6 +56,7 @@ class MainActivity : AppCompatActivity() {
         val dialogBinding = RatatDialogBinding.inflate(layoutInflater)
         val dialog = Dialog(this)
         val parameters = LayoutParams(WindowManager.LayoutParams.MATCH_PARENT,WindowManager.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         dialog.setContentView(dialogBinding.root,parameters)
         dialogBinding.closeDialog.setOnClickListener {
             dialog.dismiss()

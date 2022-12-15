@@ -41,8 +41,7 @@
             app:popExitAnim="@anim/slide_out_left"/>
         <argument
             android:name="username"
-            app:argType="string"
-            android:defaultValue="User" />
+            app:argType="string" />
         <action
             android:id="@+id/action_calcFragment_to_helpFragment"
             app:destination="@id/helpFragment" />
