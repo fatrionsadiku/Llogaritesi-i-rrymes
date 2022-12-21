@@ -1,90 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        android:layout_gravity="top|end"
+        android:layout_margin="14dp"
+        app:fabCustomSize="50dp"
+        android:id="@+id/backButton" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/helpTitle"
-            android:layout_width="300dp"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/sanslight"
-            android:text="Si ta përdorim aplikacionin?"
-            android:textFontWeight="700"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/backButton"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            app:layout_constraintStart_toEndOf="@id/helpTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:src="@drawable/ic_baseline_arrow_back_24"
-            android:background="@drawable/backbtn_bg"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            />
-
-        <TextView
-            android:id="@+id/gjetjaEVlerave"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gjetja e vlerave:"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/helpTitle"
-            app:layout_constraintBottom_toTopOf="@id/faturaImageView"/>
-
-        <ImageView
-            android:id="@+id/faturaImageView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="40sp"
-            android:layout_marginEnd="5dp"
-            android:src="@drawable/fatura"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/helpTitle"/>
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/helpTitle"
+                android:layout_width="300dp"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/sanslight"
+                android:text="Si ta përdorim aplikacionin?"
+                android:textFontWeight="700"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-        <ImageView
-            android:id="@+id/fushatImageView"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/vlerat"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/faturaImageView" />
+            <TextView
+                android:id="@+id/gjetjaEVlerave"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gjetja e vlerave:"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/helpTitle"
+                app:layout_constraintBottom_toTopOf="@id/faturaImageView"/>
 
-        <ImageView
-            android:id="@+id/alternativaImageView"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/alternativa"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fushatImageView" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/faturaImageView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="40sp"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/fatura"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/helpTitle"/>
 
 
-</ScrollView>
+            <ImageView
+                android:id="@+id/fushatImageView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/vlerat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/faturaImageView" />
+
+            <ImageView
+                android:id="@+id/alternativaImageView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/alternativa"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fushatImageView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
