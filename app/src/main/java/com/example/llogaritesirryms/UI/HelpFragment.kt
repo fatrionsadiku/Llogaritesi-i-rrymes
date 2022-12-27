@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.llogaritesirryms.R
 import com.example.llogaritesirryms.databinding.HelpFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HelpFragment : Fragment() {
     lateinit var binding : HelpFragmentBinding
     override fun onCreateView(

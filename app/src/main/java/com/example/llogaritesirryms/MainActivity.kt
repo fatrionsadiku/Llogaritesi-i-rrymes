@@ -17,7 +17,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.example.llogaritesirryms.databinding.ActivityMainBinding
 import com.example.llogaritesirryms.databinding.RatatDialogBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var toggle : ActionBarDrawerToggle
     lateinit var binding : ActivityMainBinding

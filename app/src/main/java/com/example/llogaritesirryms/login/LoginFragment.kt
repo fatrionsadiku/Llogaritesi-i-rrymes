@@ -11,23 +11,28 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.llogaritesirryms.R
 import com.example.llogaritesirryms.data.Preferences
 import com.example.llogaritesirryms.databinding.LandingFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
     lateinit var binding: LandingFragmentBinding
-    lateinit var viewModel: LoginViewModel
+    private val viewModel: LoginViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = LandingFragmentBinding.inflate(inflater, container, false)
-        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         binding.loginButton.setOnClickListener {
             login()
         }
@@ -46,7 +51,7 @@ class LoginFragment : Fragment() {
     }
 
 
-    fun onBackPressed() {
+    private fun onBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             AlertDialog.Builder(requireContext()).apply {
                 setTitle("Do you want to exit out of the app?")
@@ -65,20 +70,19 @@ class LoginFragment : Fragment() {
     private fun login() {
         val name = binding.userName.text.toString()
         val passWord = binding.password.text.toString()
-        context?.let { it1 ->
-            viewModel.getLoginDetails(name, passWord)?.observe(viewLifecycleOwner, Observer {
-                if (it != null) {
-                    if (binding.rememberMeCheckBox.isChecked) {
-                        Preferences.saveName(name)
-                        Preferences.savePassword(passWord)
-                    }
-                    val action = LoginFragmentDirections.actionLandingFragmentToCalcFragment(name)
-                    findNavController().navigate(action)
-                } else {
-                    loginError()
+        viewModel.getLoginDetails(name, passWord)?.observe(viewLifecycleOwner) { user ->
+            if (user != null) {
+                if (binding.rememberMeCheckBox.isChecked) {
+                    Preferences.saveName(name)
+                    Preferences.savePassword(passWord)
                 }
-            })
+                val action = LoginFragmentDirections.actionLandingFragmentToCalcFragment(name)
+                findNavController().navigate(action)
+            } else {
+                loginError()
+            }
         }
+
     }
 
     private fun loginError() {
@@ -109,3 +113,9 @@ class LoginFragment : Fragment() {
         }
     }
 }
+
+
+
+
+
+

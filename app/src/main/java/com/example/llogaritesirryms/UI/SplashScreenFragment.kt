@@ -9,8 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.llogaritesirryms.R
 import com.example.llogaritesirryms.databinding.SplashScreenFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 @SuppressLint("CustomSplashScreen")
+@AndroidEntryPoint
 class SplashScreenFragment : Fragment() {
     private lateinit var binding: SplashScreenFragmentBinding
     override fun onCreateView(

@@ -8,18 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.llogaritesirryms.R
 import com.example.llogaritesirryms.data.User
-import com.example.llogaritesirryms.data.UserDatabase
 import com.example.llogaritesirryms.databinding.RegisterFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
-import java.lang.IllegalArgumentException
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
     lateinit var binding: RegisterFragmentBinding
-
-
+    val registerViewModel : RegisterViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,9 +53,7 @@ class RegisterFragment : Fragment() {
         )
         CoroutineScope(Dispatchers.IO).launch {
             if (userName.isNotEmpty() && password.isNotEmpty() && password == password1) {
-                val database = UserDatabase.getDatabase(requireContext())
-                val userDao = database.userDao()
-                userDao.addUser(user)
+                registerViewModel.registerUser(user)
                 withContext(Dispatchers.Main) {
                     registerSuccessfulAnimation()
                     clearFields()
