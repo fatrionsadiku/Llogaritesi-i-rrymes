@@ -96,7 +96,10 @@ class CalculateFragment : Fragment() {
             WindowManager.LayoutParams.WRAP_CONTENT
         )
         dialog.setContentView(dialogBinding.root, parameters)
-        dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog.window?.apply {
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            setWindowAnimations(R.style.DialogAnimation)
+        }
         dialogBinding.calcResult.text = "Borgji total eshte : $roundedRes $"
         dialogBinding.closeDialog.setOnClickListener {
             dialog.dismiss()
@@ -110,8 +113,16 @@ class CalculateFragment : Fragment() {
 
     private fun showDialog() {
         val dialogBinding = AddValuesDialogBinding.inflate(requireActivity().layoutInflater)
-        val dialog = BottomSheetDialog(requireActivity())
-        dialog.setContentView(dialogBinding.root)
+        val dialog = Dialog(requireActivity())
+        val parameters = LayoutParams(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
+        dialog.setContentView(dialogBinding.root,parameters)
+        dialog.window?.apply {
+            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            setWindowAnimations(R.style.DialogAnimation)
+        }
         dialogBinding.ruajVlerat.setOnClickListener {
             try {
                 val A1 = dialogBinding.a1EKaluar.text.toString().toInt()
