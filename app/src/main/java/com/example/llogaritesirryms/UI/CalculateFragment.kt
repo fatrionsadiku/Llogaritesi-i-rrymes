@@ -146,10 +146,9 @@ class CalculateFragment : Fragment() {
     }
 
     private fun initUI() {
-        val A1 = Preferences.getA1().toString()
-        val A2 = Preferences.getA2().toString()
-        binding.a1EKaluar.setText(A1, TextView.BufferType.EDITABLE)
-        binding.a2EKaluar.setText(A2, TextView.BufferType.EDITABLE)
+//        Gets the saved A1 and A2 values from Shared Preferences, if there's any
+        binding.a1EKaluar.setText(Preferences.getA1().toString(), TextView.BufferType.EDITABLE)
+        binding.a2EKaluar.setText(Preferences.getA2().toString(), TextView.BufferType.EDITABLE)
     }
 
     private fun onBackPressed() {
