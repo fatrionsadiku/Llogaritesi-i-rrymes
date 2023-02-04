@@ -49,6 +49,14 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_calcFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -86,6 +94,24 @@
         <action
             android:id="@+id/action_splashScreenFragment_to_landingFragment"
             app:destination="@id/landingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.llogaritesirryms.UI.ResultFragment"
+        android:label="ResultFragment"
+        tools:layout="@layout/result_fragment"
+        >
+        <action
+            android:id="@+id/action_resultFragment_to_calcFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            />
+        <argument
+            android:name="calcpackage"
+            app:argType="com.example.llogaritesirryms.data.CalcPackage"
+            app:nullable="true" />
     </fragment>
 
 </navigation>

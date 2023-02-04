@@ -8,40 +8,34 @@ import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.Toolbar
 import android.widget.Toolbar.LayoutParams
-import android.widget.Toolbar.OnMenuItemClickListener
 import androidx.activity.addCallback
-import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
 import com.example.llogaritesirryms.R
+import com.example.llogaritesirryms.UI.viewmodels.ResultViewModel
+import com.example.llogaritesirryms.data.CalcPackage
 import com.example.llogaritesirryms.data.Preferences
 import com.example.llogaritesirryms.databinding.AddValuesDialogBinding
 import com.example.llogaritesirryms.databinding.CalcFragmentBinding
-import com.example.llogaritesirryms.databinding.CalcResultDialogBinding
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.result_fragment.*
 import java.lang.IllegalArgumentException
-import kotlin.math.roundToInt
 
 @AndroidEntryPoint
 class CalculateFragment : Fragment() {
 
 
     lateinit var binding: CalcFragmentBinding
-    val homeViewModel: HomeViewModel by viewModels()
+    val resultViewModel: ResultViewModel by viewModels()
     private val safeArgs by navArgs<CalculateFragmentArgs>()
+    lateinit var userName : String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -54,7 +48,7 @@ class CalculateFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Preferences.init(requireContext())
         onBackPressed()
-        backGroundAnimation()
+        userName = safeArgs.username
 
         binding.addButton.setOnClickListener {
             showDialog()
@@ -82,32 +76,38 @@ class CalculateFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun calcVal() {
-        val a1EKaluar = binding.a1EKaluar.text.toString().toDouble()
-        val a2EKaluar = binding.a2EKaluar.text.toString().toDouble()
-        val a1ETashme = binding.a1ETashme.text.toString().toDouble()
-        val a2ETashme = binding.a2ETashme.text.toString().toDouble()
+        val a1EKaluar = binding.a1EKaluar.text.toString().toInt()
+        val a2EKaluar = binding.a2EKaluar.text.toString().toInt()
+        val a1ETashme = binding.a1ETashme.text.toString().toInt()
+        val a2ETashme = binding.a2ETashme.text.toString().toInt()
 
-        val roundedRes = homeViewModel.calcVal(a1ETashme, a1EKaluar, a2ETashme, a2EKaluar)
+        val calcpackage = CalcPackage(null,a1EKaluar,a1ETashme,a2EKaluar,a2ETashme,userName)
 
-        val dialogBinding = CalcResultDialogBinding.inflate(requireActivity().layoutInflater)
-        val dialog = Dialog(requireContext())
-        val parameters = LayoutParams(
-            WindowManager.LayoutParams.MATCH_PARENT,
-            WindowManager.LayoutParams.WRAP_CONTENT
-        )
-        dialog.setContentView(dialogBinding.root, parameters)
-        dialog.window?.apply {
-            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-            setWindowAnimations(R.style.DialogAnimation)
-        }
-        dialogBinding.calcResult.text = "Borgji total eshte : $roundedRes $"
-        dialogBinding.closeDialog.setOnClickListener {
-            dialog.dismiss()
-        }
-        dialogBinding.closeDialogButton.setOnClickListener {
-            dialog.dismiss()
-        }
-        dialog.show()
+        val action = CalculateFragmentDirections.actionCalcFragmentToResultFragment(calcpackage)
+        findNavController().navigate(action)
+
+
+//        val roundedRes = homeViewModel.calcVal(a1ETashme, a1EKaluar, a2ETashme, a2EKaluar)
+//
+//        val dialogBinding = CalcResultDialogBinding.inflate(requireActivity().layoutInflater)
+//        val dialog = Dialog(requireContext())
+//        val parameters = LayoutParams(
+//            WindowManager.LayoutParams.MATCH_PARENT,
+//            WindowManager.LayoutParams.WRAP_CONTENT
+//        )
+//        dialog.setContentView(dialogBinding.root, parameters)
+//        dialog.window?.apply {
+//            setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+//            setWindowAnimations(R.style.DialogAnimation)
+//        }
+//        dialogBinding.calcResult.text = "Borgji total eshte : $roundedRes $"
+//        dialogBinding.closeDialog.setOnClickListener {
+//            dialog.dismiss()
+//        }
+//        dialogBinding.closeDialogButton.setOnClickListener {
+//            dialog.dismiss()
+//        }
+//        dialog.show()
     }
 
 
