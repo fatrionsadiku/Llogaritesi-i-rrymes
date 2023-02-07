@@ -15,23 +15,32 @@ import android.widget.TextView
 import androidx.core.text.bold
 import androidx.core.text.toSpannable
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.example.llogaritesirryms.UI.viewmodels.ResultViewModel
+import com.example.llogaritesirryms.data.calc.CalcInfo
 import com.example.llogaritesirryms.databinding.ResultFragmentBinding
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
+@AndroidEntryPoint
 class ResultFragment : Fragment() {
     lateinit var binding: ResultFragmentBinding
-    lateinit var resultViewModel: ResultViewModel
+    private val resultViewModel: ResultViewModel by viewModels()
     private val safeArgs by navArgs<ResultFragmentArgs>()
+    private var totalA1EShpenzuar : String = ""
+    private var totalA2EShpenzuar : String = ""
+    private var borgjiTotal : String = ""
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = ResultFragmentBinding.inflate(inflater, container, false)
-        resultViewModel = ViewModelProvider(requireActivity())[ResultViewModel::class.java]
         return binding.root
     }
 
@@ -40,6 +49,8 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val calcPackage = safeArgs.calcpackage
+
+
 
         binding.apply {
             with(calcPackage) {
@@ -58,7 +69,13 @@ class ResultFragment : Fragment() {
                     calculateFinalPrice(it.a1etashme,it.a1ekaluar,it.a2etashme,it.a2ekaluar)
                 }
                 a2etashme.text = this?.a2etashme.toString()
+                totalA1EShpenzuar = "${resultViewModel.calculateA1Spent(this!!.a1etashme, a1ekaluar)}€"
+                totalA2EShpenzuar = "${resultViewModel.calculateA2Spent(a2etashme, a2ekaluar)}€"
+                borgjiTotal = "${totalA1EShpenzuar.removeSuffix("€").toDouble() + totalA2EShpenzuar.removeSuffix("€").toDouble()}€"
             }
+        }
+        CoroutineScope(Dispatchers.IO).launch {
+                resultViewModel.insertCalculatedPackage(CalcInfo(userName = calcPackage!!.userName, totalA1EShpenzuar = totalA1EShpenzuar, totalA2EShpenzuar = totalA2EShpenzuar, borgjiTotal = borgjiTotal))
         }
     }
     fun calculateIndividualCategories(vleraETashme: Int, vleraEKaluar: Int, lloji : Int): SpannableString {

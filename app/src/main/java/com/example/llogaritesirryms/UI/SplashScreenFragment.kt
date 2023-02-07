@@ -24,8 +24,8 @@ class SplashScreenFragment : Fragment() {
 
             binding.logo.alpha = 0f
             binding.appTitle.alpha = 0f
-            binding.appTitle.animate().setDuration(4000).alpha(1f)
-            binding.logo.animate().setDuration(4000).alpha(1f).withEndAction{
+            binding.appTitle.animate().setDuration(2000).alpha(1f)
+            binding.logo.animate().setDuration(2000).alpha(1f).withEndAction{
                 findNavController().navigate(R.id.action_splashScreenFragment_to_landingFragment)
             }
         return binding.root

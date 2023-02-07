@@ -1,8 +1,8 @@
 package com.example.llogaritesirryms.register
 
 import androidx.lifecycle.ViewModel
-import com.example.llogaritesirryms.data.User
-import com.example.llogaritesirryms.data.UserDao
+import com.example.llogaritesirryms.data.user.User
+import com.example.llogaritesirryms.data.user.UserDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

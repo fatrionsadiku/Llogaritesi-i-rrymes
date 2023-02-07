@@ -1,16 +1,17 @@
 package com.example.llogaritesirryms.data
 
-import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
 import androidx.room.RoomDatabase
-import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.internal.synchronized
+import com.example.llogaritesirryms.data.calc.CalcInfo
+import com.example.llogaritesirryms.data.calc.CalcPackageDao
+import com.example.llogaritesirryms.data.user.User
+import com.example.llogaritesirryms.data.user.UserDao
 
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class, CalcInfo::class], version = 3)
 abstract class UserDatabase() : RoomDatabase() {
 
+    abstract fun calcDao(): CalcPackageDao
     abstract fun userDao(): UserDao
 
 

@@ -20,8 +20,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.llogaritesirryms.R
 import com.example.llogaritesirryms.UI.viewmodels.ResultViewModel
-import com.example.llogaritesirryms.data.CalcPackage
+import com.example.llogaritesirryms.data.calc.CalcInfo
 import com.example.llogaritesirryms.data.Preferences
+import com.example.llogaritesirryms.data.calc.CalcPackage
 import com.example.llogaritesirryms.databinding.AddValuesDialogBinding
 import com.example.llogaritesirryms.databinding.CalcFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -81,7 +82,7 @@ class CalculateFragment : Fragment() {
         val a1ETashme = binding.a1ETashme.text.toString().toInt()
         val a2ETashme = binding.a2ETashme.text.toString().toInt()
 
-        val calcpackage = CalcPackage(null,a1EKaluar,a1ETashme,a2EKaluar,a2ETashme,userName)
+        val calcpackage = CalcPackage(a1EKaluar,a1ETashme,a2EKaluar,a2ETashme,userName)
 
         val action = CalculateFragmentDirections.actionCalcFragmentToResultFragment(calcpackage)
         findNavController().navigate(action)

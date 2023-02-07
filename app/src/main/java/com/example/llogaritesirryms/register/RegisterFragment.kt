@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.llogaritesirryms.R
-import com.example.llogaritesirryms.data.User
+import com.example.llogaritesirryms.data.user.User
 import com.example.llogaritesirryms.databinding.RegisterFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*

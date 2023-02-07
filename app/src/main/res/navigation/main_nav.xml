@@ -110,8 +110,9 @@
             />
         <argument
             android:name="calcpackage"
-            app:argType="com.example.llogaritesirryms.data.CalcPackage"
-            app:nullable="true" />
+            app:argType="com.example.llogaritesirryms.data.calc.CalcPackage"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.llogaritesirryms.data
+package com.example.llogaritesirryms.data.user
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

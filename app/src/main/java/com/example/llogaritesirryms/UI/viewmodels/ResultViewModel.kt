@@ -1,9 +1,23 @@
 package com.example.llogaritesirryms.UI.viewmodels
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.llogaritesirryms.data.calc.CalcInfo
+import com.example.llogaritesirryms.data.calc.CalcPackageDao
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ResultViewModel : ViewModel() {
+@HiltViewModel
+class ResultViewModel @Inject constructor(
+    private val calcPackageDao: CalcPackageDao
+) : ViewModel() {
 
+
+
+    fun insertCalculatedPackage(calcPackage: CalcInfo) = viewModelScope.launch {
+        calcPackageDao.registerCalculatedResult(calcPackage)
+    }
 
     fun calculateA1Spent(a1ETashme: Int, a1EKaluar: Int)=
         String.format("%.2f", (a1ETashme - a1EKaluar) * 0.0675)

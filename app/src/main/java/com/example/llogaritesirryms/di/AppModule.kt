@@ -25,8 +25,13 @@ object AppModule {
             .fallbackToDestructiveMigration()
             .build()
 
+
     @Provides
     fun provideDao(db : UserDatabase) = db.userDao()
+
+
+    @Provides
+    fun provideCalcDao(db : UserDatabase) = db.calcDao()
 
     @ApplicationScope
     @Singleton

@@ -1,4 +1,4 @@
-package com.example.llogaritesirryms.data
+package com.example.llogaritesirryms.data.user
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
