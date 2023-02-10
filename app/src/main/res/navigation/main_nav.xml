@@ -113,6 +113,9 @@
             app:argType="com.example.llogaritesirryms.data.calc.CalcPackage"
             app:nullable="true"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_resultFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
     </fragment>
 
 </navigation>

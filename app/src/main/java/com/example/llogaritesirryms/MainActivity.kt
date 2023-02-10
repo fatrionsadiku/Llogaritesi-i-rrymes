@@ -12,8 +12,10 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import com.example.llogaritesirryms.databinding.ActivityMainBinding
 import com.example.llogaritesirryms.databinding.RatatDialogBinding
@@ -36,11 +38,14 @@ class MainActivity : AppCompatActivity() {
         binding.drawerLayout.addDrawerListener(toggle)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        binding.navView.setupWithNavController(navHostFragment.navController)
-        binding.navView.setNavigationItemSelectedListener {
-            when(it.itemId){
-                R.id.ratatFragment -> showDialog()
-                R.id.helpFragment -> navigateCheck()
+        val navController = navHostFragment.navController
+        binding.navView.setupWithNavController(navController)
+        binding.navView.setNavigationItemSelectedListener { menuItem ->
+            when(menuItem.itemId){
+                R.id.ratatFragment -> {
+                    showDialog()
+                }
+                R.id.helpFragment -> navController.navigate(R.id.helpFragment)
             }
             true
         }
@@ -53,7 +58,6 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
     private fun showDialog(){
         val dialogBinding = RatatDialogBinding.inflate(layoutInflater)
         val dialog = Dialog(this)
@@ -69,11 +73,11 @@ class MainActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun navigateCheck(){
-        try {
-            findNavController(R.id.fragmentContainerView).navigate(R.id.action_calcFragment_to_helpFragment)
-        }catch (e : java.lang.IllegalArgumentException){
-            Toast.makeText(this,"Please login first before navigating to the help section", Toast.LENGTH_LONG).show()
-        }
-    }
+//    private fun navigateCheck(){
+//        try {
+//            findNavController(R.id.fragmentContainerView).navigate(R.id.action_calcFragment_to_helpFragment)
+//        }catch (e : java.lang.IllegalArgumentException){
+//            Toast.makeText(this,"Please login first before navigating to the help section", Toast.LENGTH_LONG).show()
+//        }
+//    }
 }

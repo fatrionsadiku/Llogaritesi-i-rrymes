@@ -25,7 +25,7 @@ class HelpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.backButton.setOnClickListener {
-            findNavController().navigate(R.id.action_helpFragment_to_calcFragment)
+            fragmentManager?.popBackStack()
         }
     }
 }
