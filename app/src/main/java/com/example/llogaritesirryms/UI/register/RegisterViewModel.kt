@@ -1,4 +1,4 @@
-package com.example.llogaritesirryms.register
+package com.example.llogaritesirryms.UI.register
 
 import androidx.lifecycle.ViewModel
 import com.example.llogaritesirryms.data.user.User

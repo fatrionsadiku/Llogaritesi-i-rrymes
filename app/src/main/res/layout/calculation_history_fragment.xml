@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/calcHeader"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:src="@drawable/calculation_history_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/titleHolder"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/useri"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="18dp"
+            android:fontFamily="@font/manrope"
+            android:text="Useri"
+            android:textColor="#FFFFFF"
+            android:textFontWeight="700"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="1.25dp"
+
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/a1EShpenzuar"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/manrope"
+            android:text="E Lira"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textFontWeight="700"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="1.25dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/a2EShpenzuar"
+            android:layout_width="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/manrope"
+            android:text="E Shtrenjta"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+            android:textFontWeight="700"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="1.25dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:background="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/totali"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/manrope"
+            android:text="Totali"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:textFontWeight="700"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="1.25dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:background="#FFFFFF" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/calcHistoryRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleHolder"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

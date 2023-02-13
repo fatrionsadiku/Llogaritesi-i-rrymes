@@ -1,4 +1,4 @@
-package com.example.llogaritesirryms.register
+package com.example.llogaritesirryms.UI.register
 
 import android.graphics.Color
 import android.os.Bundle

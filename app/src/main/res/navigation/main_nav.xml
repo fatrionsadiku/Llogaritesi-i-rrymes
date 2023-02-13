@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/landingFragment"
-        android:name="com.example.llogaritesirryms.login.LoginFragment"
+        android:name="com.example.llogaritesirryms.UI.login.LoginFragment"
         android:label="landingFragment"
         tools:layout="@layout/landing_fragment">
         <action
@@ -25,6 +25,12 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_landingFragment_to_calculationHistoryFragment"
+            app:destination="@id/calculationHistoryFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_calculationHistoryFragment2"
+            app:destination="@id/calculationHistoryFragment" />
     </fragment>
 
     <fragment
@@ -57,11 +63,14 @@
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             />
+        <action
+            android:id="@+id/action_calcFragment_to_calculationHistoryFragment"
+            app:destination="@id/calculationHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
         tools:layout="@layout/register_fragment"
-        android:name="com.example.llogaritesirryms.register.RegisterFragment"
+        android:name="com.example.llogaritesirryms.UI.register.RegisterFragment"
         android:label="RegisterFragment" >
         <action
             android:id="@+id/action_registerFragment_to_landingFragment"
@@ -70,6 +79,9 @@
             app:exitAnim="@anim/slide_out_right"
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_registerFragment_to_calculationHistoryFragment"
+            app:destination="@id/calculationHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
@@ -85,6 +97,9 @@
             app:popEnterAnim="@anim/slide_in_right"
             app:popExitAnim="@anim/slide_out_left"
             />
+        <action
+            android:id="@+id/action_helpFragment_to_calculationHistoryFragment"
+            app:destination="@id/calculationHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashScreenFragment"
@@ -116,6 +131,14 @@
         <action
             android:id="@+id/action_resultFragment_to_helpFragment"
             app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_resultFragment_to_calculationHistoryFragment"
+            app:destination="@id/calculationHistoryFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/calculationHistoryFragment"
+        tools:layout="@layout/calculation_history_fragment"
+        android:name="com.example.llogaritesirryms.UI.CalculationHistoryFragment"
+        android:label="CalculationHistoryFragment" />
 
 </navigation>

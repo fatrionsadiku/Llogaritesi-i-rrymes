@@ -1,4 +1,4 @@
-package com.example.llogaritesirryms.login
+package com.example.llogaritesirryms.UI.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

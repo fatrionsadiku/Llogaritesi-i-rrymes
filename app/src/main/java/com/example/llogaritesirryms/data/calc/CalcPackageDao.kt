@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface CalcPackageDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun registerCalculatedResult(calcPackage: CalcInfo)
 
     @Query("SELECT * FROM calc_info")

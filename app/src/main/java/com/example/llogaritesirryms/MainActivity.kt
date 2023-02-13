@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                     showDialog()
                 }
                 R.id.helpFragment -> navController.navigate(R.id.helpFragment)
+                R.id.calculationHistoryFragment -> navController.navigate(R.id.calculationHistoryFragment)
             }
             true
         }
