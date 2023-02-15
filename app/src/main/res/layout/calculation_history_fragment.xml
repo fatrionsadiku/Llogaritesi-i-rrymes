@@ -2,8 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/calcHeader"
@@ -25,13 +24,13 @@
 
         <TextView
             android:id="@+id/useri"
-            android:gravity="center"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="18dp"
+            android:layout_weight="1"
             android:fontFamily="@font/manrope"
+            android:gravity="center"
             android:text="Useri"
             android:textColor="#FFFFFF"
             android:textFontWeight="700"
@@ -47,13 +46,13 @@
         <TextView
             android:id="@+id/a1EShpenzuar"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="12dp"
+            android:layout_weight="1"
             android:fontFamily="@font/manrope"
-            android:text="E Lira"
             android:gravity="center"
+            android:text="E Lira"
             android:textColor="#FFFFFF"
             android:textFontWeight="700"
             android:textSize="18sp" />
@@ -67,13 +66,13 @@
         <TextView
             android:id="@+id/a2EShpenzuar"
             android:layout_width="wrap_content"
-            android:layout_weight="0.5"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="12dp"
+            android:layout_weight="0.5"
             android:fontFamily="@font/manrope"
-            android:text="E Shtrenjta"
             android:gravity="center"
+            android:text="E Shtrenjta"
             android:textColor="#FFFFFF"
             android:textFontWeight="700"
             android:textSize="18sp" />
@@ -89,12 +88,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:layout_marginStart="12dp"
+            android:layout_weight="1"
             android:fontFamily="@font/manrope"
+            android:gravity="center"
             android:text="Totali"
             android:textColor="#FFFFFF"
-            android:gravity="center"
             android:textFontWeight="700"
             android:textSize="18sp" />
 
@@ -106,6 +105,19 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/noValuesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Nuk ka vlera të regjistruara!"
+        android:textSize="18sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calcHistoryRecyclerView"
         android:layout_width="match_parent"
@@ -113,7 +125,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleHolder"/>
+        app:layout_constraintTop_toBottomOf="@id/titleHolder" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

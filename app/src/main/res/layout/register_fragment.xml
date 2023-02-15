@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="123dp"
-        android:layout_height="121dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="60dp"
-        android:src="@drawable/app_logo"
+        android:src="@drawable/app_logo_no_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,19 +98,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/reEnterPassword" />
-    <android.widget.Button
-        android:id="@+id/loginButton"
-        android:layout_width="312dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/login_and_register_button_bg"
-        android:text="Kyqu"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registerButton" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

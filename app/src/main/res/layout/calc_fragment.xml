@@ -9,10 +9,10 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginTop="30dp"
-            android:src="@drawable/app_logo"
+            android:src="@drawable/app_logo_no_bg"
             app:layout_constraintBottom_toTopOf="@id/vleratEKaluara"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/landingFragment"
-        android:name="com.example.llogaritesirryms.UI.login.LoginFragment"
+        android:name="com.example.llogaritesirryms.ui.login.LoginFragment"
         android:label="landingFragment"
         tools:layout="@layout/landing_fragment">
         <action
@@ -35,7 +35,7 @@
 
     <fragment
         android:id="@+id/calcFragment"
-        android:name="com.example.llogaritesirryms.UI.CalculateFragment"
+        android:name="com.example.llogaritesirryms.ui.calculation.CalculateFragment"
         android:label="CalculateFragment"
         tools:layout="@layout/calc_fragment">
         <action
@@ -70,7 +70,7 @@
     <fragment
         android:id="@+id/registerFragment"
         tools:layout="@layout/register_fragment"
-        android:name="com.example.llogaritesirryms.UI.register.RegisterFragment"
+        android:name="com.example.llogaritesirryms.ui.register.RegisterFragment"
         android:label="RegisterFragment" >
         <action
             android:id="@+id/action_registerFragment_to_landingFragment"
@@ -85,7 +85,7 @@
     </fragment>
     <fragment
         android:id="@+id/helpFragment"
-        android:name="com.example.llogaritesirryms.UI.HelpFragment"
+        android:name="com.example.llogaritesirryms.ui.HelpFragment"
         android:label="HelpFragment"
         tools:layout="@layout/help_fragment"
         >
@@ -103,7 +103,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashScreenFragment"
-        android:name="com.example.llogaritesirryms.UI.SplashScreenFragment"
+        android:name="com.example.llogaritesirryms.ui.SplashScreenFragment"
         tools:layout="@layout/splash_screen_fragment"
         android:label="SplashScreenFragment" >
         <action
@@ -112,7 +112,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.example.llogaritesirryms.UI.ResultFragment"
+        android:name="com.example.llogaritesirryms.ui.calculation_result.ResultFragment"
         android:label="ResultFragment"
         tools:layout="@layout/result_fragment"
         >
@@ -138,7 +138,7 @@
     <fragment
         android:id="@+id/calculationHistoryFragment"
         tools:layout="@layout/calculation_history_fragment"
-        android:name="com.example.llogaritesirryms.UI.CalculationHistoryFragment"
+        android:name="com.example.llogaritesirryms.ui.calculation_history.CalculationHistoryFragment"
         android:label="CalculationHistoryFragment" />
 
 </navigation>

@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.MenuItem
 import android.view.WindowManager
 import android.widget.Toast
@@ -20,6 +21,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.llogaritesirryms.databinding.ActivityMainBinding
 import com.example.llogaritesirryms.databinding.RatatDialogBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -44,9 +46,16 @@ class MainActivity : AppCompatActivity() {
             when(menuItem.itemId){
                 R.id.ratatFragment -> {
                     showDialog()
+                    drawerLayout.closeDrawer(Gravity.LEFT,true)
                 }
-                R.id.helpFragment -> navController.navigate(R.id.helpFragment)
-                R.id.calculationHistoryFragment -> navController.navigate(R.id.calculationHistoryFragment)
+                R.id.helpFragment -> {
+                    navController.navigate(R.id.helpFragment)
+                    drawerLayout.closeDrawer(Gravity.LEFT,true)
+                }
+                R.id.calculationHistoryFragment -> {
+                    navController.navigate(R.id.calculationHistoryFragment)
+                    drawerLayout.closeDrawer(Gravity.LEFT,true)
+                }
             }
             true
         }

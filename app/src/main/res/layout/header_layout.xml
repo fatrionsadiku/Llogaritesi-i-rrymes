@@ -5,11 +5,11 @@
     android:layout_height="180dp">
 
     <ImageView
-        android:layout_width="237dp"
+        android:layout_width="200dp"
         android:layout_height="150dp"
         android:layout_margin="10dp"
         android:paddingStart="50dp"
-        android:src="@drawable/app_logo"
+        android:src="@drawable/app_logo_no_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

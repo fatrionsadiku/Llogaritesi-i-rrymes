@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="123dp"
-        android:layout_height="121dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="60dp"
-        android:src="@drawable/app_logo"
+        android:src="@drawable/app_logo_no_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         android:id="@+id/userName"
         android:layout_width="312dp"
         android:layout_height="48dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/edit_text_bg"
         android:fontFamily="@font/poppins"
         android:hint="Username i juaj"
@@ -65,6 +65,7 @@
         android:paddingTop="5dp"
         android:textColor="#70000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userNameLabel" />
 
@@ -88,7 +89,7 @@
         android:id="@+id/password"
         android:layout_width="312dp"
         android:layout_height="48dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_bg"
         android:fontFamily="@font/poppins"
         android:hint="Shtypni password-in"
@@ -97,9 +98,9 @@
         android:paddingTop="5dp"
         android:textColor="#70000000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/passwordLabel" />
-
 
     <CheckBox
         android:id="@+id/rememberMeCheckBox"
@@ -139,6 +140,19 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password" />
+    <android.widget.Button
+        android:id="@+id/loginAsGuestButton"
+        android:layout_width="312dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/login_and_register_button_bg"
+        android:text="Kyqu si guest"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loginButton" />
 
     <TextView
         android:id="@+id/skeniAcc"
@@ -153,7 +167,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@id/registerButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@id/loginAsGuestButton" />
 
     <TextView
         android:id="@+id/registerButton"
@@ -167,7 +181,7 @@
         android:textFontWeight="800"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/skeniAcc"
-        app:layout_constraintTop_toBottomOf="@id/loginButton" />
+        app:layout_constraintTop_toBottomOf="@id/loginAsGuestButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
