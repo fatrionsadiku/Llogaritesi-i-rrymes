@@ -10,6 +10,7 @@ object Preferences {
     private const val A2_E_KALUAR_KEY = "a2 e kaluar"
     private const val NAME_KEY = "name key"
     private const val PASSWORD_KEY = "password key"
+    private const val HAS_VALUES_KEY = "Values Key"
     lateinit var prefs : SharedPreferences
 
     fun init(ctx : Context){
@@ -19,6 +20,11 @@ object Preferences {
     fun saveA1(value : Int){
         prefs.edit().putInt(A1_E_KALUAR_KEY,value).apply()
     }
+    fun hasValuesSetState(state : Boolean){
+        prefs.edit().putBoolean(HAS_VALUES_KEY,state).apply()
+    }
+    fun getValuesState() = prefs.getBoolean(HAS_VALUES_KEY,false)
+
     fun getA1() =
         prefs.getInt(A1_E_KALUAR_KEY,0)
 

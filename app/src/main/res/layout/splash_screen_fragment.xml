@@ -7,10 +7,10 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="195dp"
-        android:layout_height="208dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginTop="168dp"
-        android:src="@drawable/app_logo"
+        android:src="@drawable/app_logo_no_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +19,7 @@
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/roboto"
         android:text="Llogaritësi i rrymës"
         android:textColor="@color/white"
