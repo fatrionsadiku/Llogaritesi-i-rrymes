@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mountains_bg"
-    >
+    android:background="@drawable/new_app_bg">
 
     <ImageView
         android:id="@+id/logo"
@@ -104,12 +103,12 @@
 
     <CheckBox
         android:id="@+id/rememberMeCheckBox"
-        android:backgroundTint="@android:color/transparent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:allowUndo="true"
         android:background="@color/white"
+        android:backgroundTint="@android:color/transparent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password" />
 
@@ -140,6 +139,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password" />
+
     <android.widget.Button
         android:id="@+id/loginAsGuestButton"
         android:layout_width="312dp"

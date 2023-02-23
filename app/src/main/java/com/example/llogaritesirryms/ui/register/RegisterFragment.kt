@@ -37,9 +37,9 @@ class RegisterFragment : Fragment() {
             registerUser()
         }
 
-//        binding.loginButton.setOnClickListener {
-//            findNavController().navigate(R.id.action_registerFragment_to_landingFragment)
-//        }
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
 

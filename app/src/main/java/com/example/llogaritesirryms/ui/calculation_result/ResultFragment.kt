@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.llogaritesirryms.data.Preferences
 import com.example.llogaritesirryms.data.calc.CalcInfo
@@ -43,6 +44,10 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val calcPackage = safeArgs.calcpackage
+
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         binding.apply {
             with(calcPackage) {

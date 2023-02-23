@@ -2,21 +2,22 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@drawable/mountains_bg"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/new_app_bg">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/backButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/ic_baseline_arrow_back_24"
         android:layout_gravity="top|end"
         android:layout_margin="14dp"
-        app:fabCustomSize="50dp"
-        android:id="@+id/backButton" />
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:fabCustomSize="50dp" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -24,10 +25,10 @@
             <TextView
                 android:id="@+id/helpTitle"
                 android:layout_width="300dp"
-                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/sanslight"
+                android:gravity="center"
                 android:text="Si ta përdorim aplikacionin?"
                 android:textFontWeight="700"
                 android:textSize="30sp"
@@ -39,14 +40,14 @@
 
             <TextView
                 android:id="@+id/gjetjaEVlerave"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
                 android:text="Gjetja e vlerave:"
+                app:layout_constraintBottom_toTopOf="@id/faturaImageView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/helpTitle"
-                app:layout_constraintBottom_toTopOf="@id/faturaImageView"/>
+                app:layout_constraintTop_toBottomOf="@id/helpTitle" />
 
             <ImageView
                 android:id="@+id/faturaImageView"
@@ -58,7 +59,7 @@
                 android:src="@drawable/fatura"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/helpTitle"/>
+                app:layout_constraintTop_toBottomOf="@id/helpTitle" />
 
 
             <ImageView
@@ -87,9 +88,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
-
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

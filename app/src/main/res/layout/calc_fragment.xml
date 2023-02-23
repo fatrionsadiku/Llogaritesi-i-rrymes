@@ -5,13 +5,12 @@
     android:id="@+id/calcLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mountains_bg">
+    android:background="@drawable/new_app_bg">
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_marginTop="30dp"
+            android:layout_width="165dp"
+            android:layout_height="165dp"
             android:src="@drawable/app_logo_no_bg"
             app:layout_constraintBottom_toTopOf="@id/vleratEKaluara"
             app:layout_constraintEnd_toEndOf="parent"
