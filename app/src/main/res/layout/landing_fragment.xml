@@ -23,14 +23,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="8dp"
         android:text="User/Password eshte gabim, provoni perseri"
         android:textColor="#FF0000"
         android:textSize="15sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/userNameLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logo" />
@@ -40,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/poppins"
         android:gravity="center"
         android:paddingTop="2dp"
@@ -48,7 +46,7 @@
         android:textColor="#695C5C"
         app:layout_constraintBottom_toTopOf="@id/userName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginError" />
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
 
     <EditText
@@ -132,9 +130,12 @@
         android:layout_height="48dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/login_and_register_button_bg"
+        android:fontFamily="@font/roboto"
         android:text="Kyqu"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
+        android:textScaleX="1.10"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,9 +147,12 @@
         android:layout_height="48dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/login_and_register_button_bg"
+        android:fontFamily="@font/roboto"
         android:text="Kyqu si guest"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
+        android:textScaleX="1.10"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

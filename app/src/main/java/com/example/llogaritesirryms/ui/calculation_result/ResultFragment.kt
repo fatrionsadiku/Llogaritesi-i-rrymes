@@ -51,21 +51,20 @@ class ResultFragment : Fragment() {
 
         binding.apply {
             with(calcPackage) {
-                welcomeText.text = "Rezultatet e llogaritjes së: ${this?.userName}"
-                a1ekaluar.setText(
+                resultTitle.text = "Rezultatet e llogaritjes së: ${this?.userName}"
+                vleraEHargjiturMeA1.setText(
                     calcPackage?.let {
                         calculateIndividualCategories(it.a1etashme, it.a1ekaluar, 1)
                     }
                 )
-                a2ekaluar.setText(
+                vleraEHargjiturMeA2.setText(
                     calcPackage?.let {
                         calculateIndividualCategories(it.a2etashme, it.a2ekaluar, 2)
                     }
                 )
-                a1etashme.text = calcPackage?.let {
+                borgjiTotalValue.text = calcPackage?.let {
                     calculateFinalPrice(it.a1etashme,it.a1ekaluar,it.a2etashme,it.a2ekaluar)
                 }
-                a2etashme.text = this?.a2etashme.toString()
                 totalA1EShpenzuar = "${resultViewModel.calculateA1Spent(this!!.a1etashme, a1ekaluar)}€"
                 totalA2EShpenzuar = "${resultViewModel.calculateA2Spent(a2etashme, a2ekaluar)}€"
                 borgjiTotal = "${totalA1EShpenzuar.removeSuffix("€").toDouble() + totalA2EShpenzuar.removeSuffix("€").toDouble()}€"
@@ -79,15 +78,15 @@ class ResultFragment : Fragment() {
     fun calculateIndividualCategories(vleraETashme: Int, vleraEKaluar: Int, lloji : Int): SpannableString {
         when(lloji){
             1 -> {
-                val price = "Vlera e hargjitur me te shtrenjten eshte : ${resultViewModel.calculateA1Spent(vleraETashme, vleraEKaluar)}€"
+                val price = "${resultViewModel.calculateA1Spent(vleraETashme, vleraEKaluar)}€"
                 val ss = SpannableString(price)
-                ss.setSpan(StyleSpan(Typeface.BOLD), ss.length-7, ss.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                ss.setSpan(StyleSpan(Typeface.BOLD), 0, ss.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                 return ss
             }
             2 -> {
-                val price = "Vlera e hargjitur me te liren eshte : ${resultViewModel.calculateA2Spent(vleraETashme, vleraEKaluar)}€"
+                val price = "${resultViewModel.calculateA2Spent(vleraETashme, vleraEKaluar)}€"
                 val ss = SpannableString(price)
-                ss.setSpan(StyleSpan(Typeface.BOLD), ss.length-7, ss.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                ss.setSpan(StyleSpan(Typeface.BOLD), 0, ss.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
                 return ss
             }
         }
@@ -96,9 +95,9 @@ class ResultFragment : Fragment() {
 
     fun calculateFinalPrice(a1ETashme: Int ,a1EKaluar: Int,a2ETashme: Int,a2EKaluar: Int) : SpannableString {
         val finalPrice = resultViewModel.calculateFinalPrice(a1ETashme,a1EKaluar,a2ETashme,a2EKaluar)
-        val price = "Borgji total eshte : $finalPrice€"
+        val price = "$finalPrice€"
         val ss = SpannableString(price)
-        ss.setSpan(StyleSpan(Typeface.BOLD), ss.length-7, ss.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        ss.setSpan(StyleSpan(Typeface.BOLD), 0, ss.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         return ss
     }
 }
