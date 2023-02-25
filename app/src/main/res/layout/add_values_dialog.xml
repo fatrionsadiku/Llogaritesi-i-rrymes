@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="wrap_content">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,22 +11,24 @@
         android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:background="@drawable/dialog_bg"
+        android:elevation="5dp"
         android:orientation="vertical"
         android:padding="20dp"
-        android:elevation="5dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="20dp">
+
         <TextView
             android:id="@+id/regjistroVlerat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:fontFamily="@font/roboto"
+            android:paddingBottom="8dp"
             android:text="Regjistro vlerat"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/ruajVlerat"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,9 +38,11 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
             android:hint="A1 e muajit te kaluar"
+            app:boxBackgroundColor="#0D000000"
+            app:boxBackgroundMode="outline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/regjistroVlerat">
 
@@ -72,11 +76,11 @@
             android:id="@+id/closeDialog"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
             android:background="@drawable/button_bg"
             android:fontFamily="@font/roboto"
             android:text="Hjek Dialogun"
             android:textAllCaps="false"
-            android:layout_marginStart="15dp"
             android:textColor="#313A19"
             app:layout_constraintBaseline_toBaselineOf="@+id/a2EkaluarField"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -88,11 +92,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:layout_marginStart="12dp"
-            android:paddingBottom="20dp"
-
+            android:layout_marginTop="12dp"
             android:hint="A2 e muajit te kaluar"
+            android:paddingBottom="20dp"
+            app:boxBackgroundColor="#0D000000"
+
+            app:boxBackgroundMode="outline"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/a1EkaluarField">
@@ -108,8 +114,6 @@
         </com.google.android.material.textfield.TextInputLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
