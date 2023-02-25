@@ -20,7 +20,7 @@ object Preferences {
     fun saveA1(value : Int){
         prefs.edit().putInt(A1_E_KALUAR_KEY,value).apply()
     }
-    fun hasValuesSetState(state : Boolean){
+    fun hasValuesState(state : Boolean){
         prefs.edit().putBoolean(HAS_VALUES_KEY,state).apply()
     }
     fun getValuesState() = prefs.getBoolean(HAS_VALUES_KEY,false)

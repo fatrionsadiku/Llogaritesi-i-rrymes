@@ -11,14 +11,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.llogaritesirryms.data.Preferences
 import com.example.llogaritesirryms.data.calc.CalcInfo
 import com.example.llogaritesirryms.databinding.ResultFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
@@ -70,12 +69,14 @@ class ResultFragment : Fragment() {
                 borgjiTotal = "${totalA1EShpenzuar.removeSuffix("€").toDouble() + totalA2EShpenzuar.removeSuffix("€").toDouble()}€"
             }
         }
-        CoroutineScope(Dispatchers.IO).launch {
-                resultViewModel.insertCalculatedPackage(CalcInfo(userName = calcPackage!!.userName, totalA1EShpenzuar = totalA1EShpenzuar, totalA2EShpenzuar = totalA2EShpenzuar, borgjiTotal = borgjiTotal))
-                Preferences.hasValuesSetState(true)
+        viewLifecycleOwner.lifecycleScope.launch {
+            resultViewModel.insertCalculatedPackage(CalcInfo(userName = calcPackage!!.userName, totalA1EShpenzuar = totalA1EShpenzuar, totalA2EShpenzuar = totalA2EShpenzuar, borgjiTotal = borgjiTotal))
+            Preferences.hasValuesState(true)
         }
+
+
     }
-    fun calculateIndividualCategories(vleraETashme: Int, vleraEKaluar: Int, lloji : Int): SpannableString {
+    private fun calculateIndividualCategories(vleraETashme: Int, vleraEKaluar: Int, lloji : Int): SpannableString {
         when(lloji){
             1 -> {
                 val price = "${resultViewModel.calculateA1Spent(vleraETashme, vleraEKaluar)}€"
@@ -93,7 +94,7 @@ class ResultFragment : Fragment() {
         throw java.lang.IllegalArgumentException("Something went wrong")
     }
 
-    fun calculateFinalPrice(a1ETashme: Int ,a1EKaluar: Int,a2ETashme: Int,a2EKaluar: Int) : SpannableString {
+    private fun calculateFinalPrice(a1ETashme: Int, a1EKaluar: Int, a2ETashme: Int, a2EKaluar: Int) : SpannableString {
         val finalPrice = resultViewModel.calculateFinalPrice(a1ETashme,a1EKaluar,a2ETashme,a2EKaluar)
         val price = "$finalPrice€"
         val ss = SpannableString(price)
