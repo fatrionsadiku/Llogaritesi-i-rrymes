@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/splashScreenFragment"
-    >
+    app:startDestination="@id/landingFragment">
 
     <fragment
         android:id="@+id/landingFragment"
@@ -100,15 +99,6 @@
         <action
             android:id="@+id/action_helpFragment_to_calculationHistoryFragment"
             app:destination="@id/calculationHistoryFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/splashScreenFragment"
-        android:name="com.example.llogaritesirryms.ui.SplashScreenFragment"
-        tools:layout="@layout/splash_screen_fragment"
-        android:label="SplashScreenFragment" >
-        <action
-            android:id="@+id/action_splashScreenFragment_to_landingFragment"
-            app:destination="@id/landingFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
