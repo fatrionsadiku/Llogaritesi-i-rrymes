@@ -2,6 +2,7 @@ package com.example.llogaritesirryms.ui.calculation_history
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.graphics.Color.alpha
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,7 +35,7 @@ class CalculationHistoryFragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        Preferences.init(requireContext())
         val calcAdapter = CalcHistoryAdapter()
 
         viewModel.calculations.observe(viewLifecycleOwner){
@@ -57,19 +58,30 @@ class CalculationHistoryFragment() : Fragment() {
         }
     }
 
-    fun showDeleteAllConfirmationDialog(){
+    private fun showDeleteAllConfirmationDialog(){
         AlertDialog.Builder(requireContext())
             .setTitle("Deshironi ti fshini te gjitha rekordet?")
             .setMessage("Ky opsion do ti fshij te gjitha rekordet!")
-            .setPositiveButton("Jo") { dialogInterface, i ->
+            .setPositiveButton("Anulo") { dialogInterface, i ->
                 dialogInterface.dismiss()
             }
-            .setNegativeButton("Po"){dialogInterface,_ ->
+            .setNegativeButton("Fshi"){ dialogInterface,_ ->
                 viewLifecycleOwner.lifecycleScope.launch {
                     viewModel.deleteAllTasks()
                 }
+                animateHasNoValuesTextView()
                 dialogInterface.dismiss()
             }
             .show()
+    }
+
+    private fun animateHasNoValuesTextView(){
+        Preferences.hasValuesState(false)
+        binding.noValuesTextView.alpha = 0f
+        binding.noValuesTextView.visibility = View.VISIBLE
+        binding.noValuesTextView.animate().apply {
+            duration = 1250
+            alpha(1f)
+        }
     }
 }
