@@ -2,7 +2,6 @@ package com.example.llogaritesirryms.data.calc
 
 import androidx.room.Dao
 import androidx.room.Delete
-import androidx.room.DeleteTable
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -18,5 +17,8 @@ interface CalcPackageDao {
     fun getCalculatedResults() : Flow<List<CalcInfo>>
 
     @Query("DELETE FROM calc_info")
-    suspend fun deleteAllTasks()
+    suspend fun deleteAllRecords()
+
+    @Delete
+    suspend fun deleteRecord(record : CalcInfo?)
 }

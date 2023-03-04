@@ -3,6 +3,7 @@ package com.example.llogaritesirryms.ui.calculation_history
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.example.llogaritesirryms.data.calc.CalcInfo
 import com.example.llogaritesirryms.data.calc.CalcPackageDao
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -15,7 +16,11 @@ class CalcHistoryViewModel @Inject constructor(
 
 
     fun deleteAllTasks() = viewModelScope.launch {
-        calcPackageDao.deleteAllTasks()
+        calcPackageDao.deleteAllRecords()
+    }
+
+    fun onRecordSwipe(currentCalculatedRecord: CalcInfo?) = viewModelScope.launch {
+        calcPackageDao.deleteRecord(currentCalculatedRecord)
     }
 
     val calculations = calcPackageDao.getCalculatedResults().asLiveData()

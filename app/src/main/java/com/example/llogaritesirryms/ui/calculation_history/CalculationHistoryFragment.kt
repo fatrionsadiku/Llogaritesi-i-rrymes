@@ -3,14 +3,19 @@ package com.example.llogaritesirryms.ui.calculation_history
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.graphics.Color.alpha
+import android.graphics.Path.Direction
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.llogaritesirryms.data.Preferences
 import com.example.llogaritesirryms.data.calc.CalcPackageDao
 import com.example.llogaritesirryms.databinding.CalculationHistoryFragmentBinding
@@ -55,6 +60,32 @@ class CalculationHistoryFragment() : Fragment() {
                 else
                     noValuesTextView.visibility = View.GONE
             }
+
+            ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(
+                0,
+                ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT
+            ) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    val currentCalculatedRecord = calcAdapter.currentList[viewHolder.adapterPosition]
+                    viewModel.onRecordSwipe(currentCalculatedRecord)
+                    Toast.makeText(requireContext(),"Rekordi u shlye me sukses", Toast.LENGTH_SHORT)
+                        .apply {
+                            setGravity(Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL,0,100)
+                        }
+                        .show()
+                    if (calcAdapter.currentList.size == 0){
+                        animateHasNoValuesTextView()
+                    }
+                }
+            }).attachToRecyclerView(calcHistoryRecyclerView)
         }
     }
 
