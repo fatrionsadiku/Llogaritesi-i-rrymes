@@ -27,17 +27,21 @@ class SplashScreenActivity : AppCompatActivity() {
 //        I'm trying to make it so whenever the splashscreen gets tapped the animation is skipped, i'm using a boolean field to check wether i have tapped the screen
 //        or not. Skipping works but if i do skip it then the code below gets executed aswell, which shouldn't since the field is set to false whenever i tap on the screen
 //        To be fixed!
-
-        binding.logo.alpha = 0f
-        binding.appTitle.alpha = 0f
-        binding.appTitle.animate().setDuration(2000).alpha(1f)
-        binding.logo.animate().setDuration(2000).alpha(1f).withEndAction {
-            Intent(this, MainActivity::class.java).also {
-                startActivity(it)
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-                finish()
+        binding.apply {
+            logo.alpha = 0f
+            appTitle.alpha = 0f
+            splashScreenActivity.alpha = 0.7f
+            appTitle.animate().setDuration(1000).alpha(1f)
+            splashScreenActivity.animate().setDuration(1000).alpha(1f)
+            logo.animate().setDuration(1000).alpha(1f).withEndAction {
+                Intent(this@SplashScreenActivity, MainActivity::class.java).also {
+                    startActivity(it)
+                    overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                    finish()
+                }
             }
         }
+
     }
 }
 
