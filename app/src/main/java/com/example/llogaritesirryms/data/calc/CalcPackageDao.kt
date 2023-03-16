@@ -13,8 +13,8 @@ interface CalcPackageDao {
     @Insert(onConflict = OnConflictStrategy.ABORT)
     suspend fun registerCalculatedResult(calcPackage: CalcInfo)
 
-    @Query("SELECT * FROM calc_info")
-    fun getCalculatedResults() : Flow<List<CalcInfo>>
+    @Query("SELECT * FROM calc_info WHERE username LIKE '%' || :userName || '%'")
+    fun getCalculatedResults(userName : String) : Flow<List<CalcInfo>>
 
     @Query("DELETE FROM calc_info")
     suspend fun deleteAllRecords()

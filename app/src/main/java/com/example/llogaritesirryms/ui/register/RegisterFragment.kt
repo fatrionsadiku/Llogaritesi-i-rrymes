@@ -21,7 +21,7 @@ import kotlinx.coroutines.*
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
     lateinit var binding: RegisterFragmentBinding
-    val registerViewModel : RegisterViewModel by viewModels()
+    private val registerViewModel : RegisterViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

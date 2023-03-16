@@ -123,25 +123,47 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layoutAnimation="@anim/animation_layout"
-        app:layout_constraintBottom_toTopOf="@id/deleteAllRecords"
+        app:layout_constraintBottom_toTopOf="@id/kerkoUserInputField"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleHolder" />
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/kerkoUserInputField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/deleteAllRecords"
+        app:layout_constraintEnd_toStartOf="@id/deleteAllRecords"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="Kerko User-in"
+            android:imeOptions="actionDone"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
     <android.widget.Button
         android:id="@+id/deleteAllRecords"
-        android:layout_width="120dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
         android:background="@drawable/button_bg"
         android:backgroundTint="#91be95"
         android:fontFamily="@font/roboto"
         android:text="Fshi rekordet"
-        android:layout_marginBottom="10dp"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calcHistoryRecyclerView" />
 
 

@@ -36,12 +36,12 @@
                 android:id="@+id/borgjiTotalValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
                 android:fontFamily="@font/roboto"
                 android:text="12.5$"
                 android:textColor="#FFC107"
                 android:textFontWeight="300"
                 android:textSize="40sp"
-                android:layout_marginTop="35dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -50,18 +50,18 @@
                 android:id="@+id/borgjiTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
                 android:fontFamily="@font/roboto"
                 android:text="Borgji total"
                 android:textFontWeight="600"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginBottom="40dp"
-                />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/totaliIA1"
         android:layout_width="150dp"
@@ -80,12 +80,12 @@
                 android:id="@+id/vleraEHargjiturMeA1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
                 android:fontFamily="@font/roboto"
                 android:text="12.5$"
                 android:textColor="#CDDC39"
                 android:textFontWeight="300"
                 android:textSize="40sp"
-                android:layout_marginTop="35dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -94,21 +94,30 @@
                 android:id="@+id/meTeLiren"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
                 android:fontFamily="@font/roboto"
-                android:text="Shuma e hargjuar me të lirën"
                 android:gravity="center"
+                android:paddingStart="7dp"
+                android:paddingEnd="7dp"
+                android:text="Shuma e hargjuar me të lirën"
                 android:textFontWeight="600"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:paddingStart="7dp"
-                android:paddingEnd="7dp"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginBottom="25dp"
-                />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/dummyDataGenerator"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/totaliIA1"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/totaliIA2"
         android:layout_width="150dp"
@@ -127,12 +136,12 @@
                 android:id="@+id/vleraEHargjiturMeA2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
                 android:fontFamily="@font/roboto"
                 android:text="12.5$"
                 android:textColor="#4CAF50"
                 android:textFontWeight="300"
                 android:textSize="40sp"
-                android:layout_marginTop="35dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -141,18 +150,17 @@
                 android:id="@+id/meTeShtrenjten"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
                 android:fontFamily="@font/roboto"
-                android:text="Shuma e hargjuar me të shtrenjten"
                 android:gravity="center"
+                android:paddingStart="7dp"
+                android:paddingEnd="7dp"
+                android:text="Shuma e hargjuar me të shtrenjten"
                 android:textFontWeight="600"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:paddingStart="7dp"
-                android:paddingEnd="7dp"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginBottom="25dp"
-                />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

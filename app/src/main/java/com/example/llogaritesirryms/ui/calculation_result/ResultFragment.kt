@@ -9,6 +9,7 @@ import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -18,6 +19,7 @@ import com.example.llogaritesirryms.data.Preferences
 import com.example.llogaritesirryms.data.calc.CalcInfo
 import com.example.llogaritesirryms.databinding.ResultFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.serpro69.kfaker.Faker
 import kotlinx.coroutines.launch
 
 
@@ -68,6 +70,11 @@ class ResultFragment : Fragment() {
                 totalA2EShpenzuar = "${resultViewModel.calculateA2Spent(a2etashme, a2ekaluar)}€"
                 borgjiTotal = "${totalA1EShpenzuar.removeSuffix("€").toDouble() + totalA2EShpenzuar.removeSuffix("€").toDouble()}€"
             }
+            dummyDataGenerator.setOnLongClickListener { 
+                addDummyDataToDataBase()
+                Toast.makeText(requireContext(),"Dummy data succesfully inserted", Toast.LENGTH_SHORT).show()
+                true
+            }
         }
         viewLifecycleOwner.lifecycleScope.launch {
             resultViewModel.insertCalculatedPackage(CalcInfo(userName = calcPackage!!.userName, totalA1EShpenzuar = totalA1EShpenzuar, totalA2EShpenzuar = totalA2EShpenzuar, borgjiTotal = borgjiTotal))
@@ -100,5 +107,26 @@ class ResultFragment : Fragment() {
         val ss = SpannableString(price)
         ss.setSpan(StyleSpan(Typeface.BOLD), 0, ss.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         return ss
+    }
+
+    private fun addDummyDataToDataBase(){
+        viewLifecycleOwner.lifecycleScope.launch {
+            for (i in 0..15){
+                val name = Faker().name.firstName()
+                val A1 = (10..100).random()
+                val A2 = (10..100).random()
+                val totali = A1 + A2
+                resultViewModel.insertCalculatedPackage(
+                    CalcInfo(
+                        id = null,
+                        userName = name,
+                        totalA1EShpenzuar = "$A1€",
+                        totalA2EShpenzuar =  "$A2€",
+                        borgjiTotal = "$totali€",
+                        created = 0
+                    )
+                )
+            }
+        }
     }
 }
