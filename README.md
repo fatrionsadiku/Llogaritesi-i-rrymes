@@ -6,7 +6,7 @@ An electric bill expenses application built with Hilt, Coroutines,Jetpack(ViewMo
 </br>
 
 <p align="center">
-<img src="/mockups/rryma_mockup-min.jpg"/>
+<img src="/mockups/rryma_mockup.jpg"/>
 </p>
 
 <img src="/mockups/rryma_mockup_demo.gif" align="right" width="320"/>
