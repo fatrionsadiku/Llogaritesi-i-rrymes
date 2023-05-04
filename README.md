@@ -1,7 +1,7 @@
 <h1 align="center">Rryma</h1>
 
 <p align="center">  
-An electric bill expenses application built with Hilt, Coroutines,Jetpack(ViewModel), and Material Design based on MVVM architecture.
+An electric bill expenses application built with Hilt,Room,Coroutines,Jetpack(ViewModel), and Material Design based on MVVM architecture.
 </p>
 </br>
 
