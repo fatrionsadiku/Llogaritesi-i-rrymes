@@ -5,10 +5,6 @@ An electric bill expenses application built with Hilt,Room,Coroutines,Jetpack(Vi
 </p>
 </br>
 
-<p align="center">
-<img src="/mockups/rryma_mockup.jpg"/>
-</p>
-
 <img src="/mockups/rryma_mockup_demo.gif" align="right" width="320"/>
 
 ## Tech stack & Open-source libraries
